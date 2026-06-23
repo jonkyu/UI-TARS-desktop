@@ -29,6 +29,7 @@ export default defineConfig({
         entry: './src/main/main.ts',
       },
       rollupOptions: {
+	external: ['js-yaml'],
         output: {
           manualChunks(id): string | void {
             // IMPORTANT: can't change the name of the chunk, avoid private key leak
