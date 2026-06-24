@@ -29,7 +29,6 @@ export default defineConfig({
         entry: './src/main/main.ts',
       },
       rollupOptions: {
-	external: ['js-yaml'],
         output: {
           manualChunks(id): string | void {
             // IMPORTANT: can't change the name of the chunk, avoid private key leak
@@ -47,7 +46,11 @@ export default defineConfig({
       }),
       tsconfigPaths(),
       externalizeDepsPlugin({
-        include: [...getExternalPkgs()],
+        include: [
+	...getExternalPkgs()
+	'keyboardevent-from-electron-accelerator',
+	'js-yaml',
+        ],
       }),
       {
         name: 'native-node-module-path',
