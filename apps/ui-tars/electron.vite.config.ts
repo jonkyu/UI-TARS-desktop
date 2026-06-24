@@ -47,10 +47,10 @@ export default defineConfig({
       tsconfigPaths(),
       externalizeDepsPlugin({
         include: [
-	...getExternalPkgs()
-	'keyboardevent-from-electron-accelerator',
-	'js-yaml',
-        ],
+		...getExternalPkgs(),
+		'keyboardevent-from-electron-accelerator',
+		'js-yaml',
+	],
       }),
       {
         name: 'native-node-module-path',
